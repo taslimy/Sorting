@@ -23,8 +23,21 @@ def merge( arrA, arrB ):
 # TO-DO: implement the Merge Sort function below USING RECURSION
 def merge_sort( arr ):
     # TO-DO
+      # if arr length is 1 return it
+    if len(arr) <= 1:
+        return arr
+    # find the split point
+    split = int(len(arr)/2) # << divide to split em has to be int for some reason it was floating.....
+    # have a start index and and end index
+    arrA = arr[:split]
+    arrB = arr[split:]
+    # We not need to put them in a left side and a right side and get a result
+    left = merge_sort(arrA)
+    right = merge_sort(arrB)
+    # merge left and right
+    res = merge(left, right)
+    return res
 
-    return arr
 
 
 # STRETCH: implement an in-place merge sort algorithm
